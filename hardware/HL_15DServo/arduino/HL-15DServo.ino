@@ -14,14 +14,14 @@ void loop() {
      delay(2500);
 }
 
-//serialEvent()是IDE1.0及以后版本新增的功能，不清楚为什么大部份人不愿意用，这个可是相当于中断功能一样的啊!  
+//serialEvent()是IDE1.0及以後版本新增的功能，不清楚為什麼大部份人不願意用，這個可是相當於中斷功能一樣的啊!
 void serialEvent()
 {
   static unsigned int num=0;
   unsigned char ch=0;
   while (Serial.available()) 
   {    
-    ch = Serial.read();              //一个字节一个字节地读，下一句是读到的放入字符串数组中组成一个完成的数据包
+    ch = Serial.read();              //一個位元組一個位元組地讀，下一句是讀到的放入字串陣列中組成一個完成的資料包
     uart_buf[num]=ch;
     num++;
      if(uart_buf[num-1]==0xED)
